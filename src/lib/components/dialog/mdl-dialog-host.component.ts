@@ -12,7 +12,7 @@ import {
 } from '@angular/core';
 
 import {
-  MIN_DIALOG_Z_INDEX, MdlDialogService
+  MIN_DIALOG_Z_INDEX, MdlDialogService, 
 } from './mdl-dialog.service';
 import { selector } from 'rxjs/operator/publish';
 
@@ -24,6 +24,7 @@ import { selector } from 'rxjs/operator/publish';
     '[class.mdl-dialog]': 'true',
     '[class.open]': 'true',
     '[class.fixed]': 'true',
+    '[style.width]': 'dialogWidth',
     '[style.zIndex]': 'zIndex',
     '[@flyInOut]': 'animateState'
   },
@@ -83,6 +84,7 @@ export class MdlDialogHostComponent {
   @ViewChild('dialogTarget', {read: ViewContainerRef}) public dialogTarget;
 
   public zIndex: number = MIN_DIALOG_Z_INDEX + 1;
+  public dialogWidth: string = 'inherit';
 
   get animateState(){
     return this.animate ? 'animate' : '';

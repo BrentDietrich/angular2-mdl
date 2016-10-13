@@ -187,7 +187,7 @@ export class MdlDialogService {
   }
 
   public showDialogTemplate(template: TemplateRef<any>, config: IMdlDialogConfiguration): Observable<MdlDialogReference> {
-
+    console.log("here", config);
     let internalDialogRef = new InternalMdlDialogReference();
 
     // FIXME bad design. this should be done in INternalMdlDialogReference
@@ -214,7 +214,8 @@ export class MdlDialogService {
 
     internalDialogRef.hostDialogComponentRef  = hostDialogComponent;
     internalDialogRef.isModal                 = dialogConfig.isModal;
-
+    internalDialogRef.hostDialog.dialogWidth  = dialogConfig.dialogWidth;
+    
     internalDialogRef.closeCallback = () => {
       this.popDialog(internalDialogRef);
       hostDialogComponent.destroy();

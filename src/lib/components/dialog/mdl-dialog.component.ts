@@ -25,6 +25,7 @@ export class MdlDialogComponent {
   @ViewChild(TemplateRef) private template: TemplateRef<any>;
 
   @Input('mdl-modal') @BooleanProperty() public modal = true;
+  @Input('dialog-width') public dialogWidth;
   @Output('show') public showEmitter: EventEmitter<MdlDialogReference> = new EventEmitter<MdlDialogReference>();
   @Output('hide') public hideEmitter: EventEmitter<void> = new EventEmitter<void>();
 
@@ -41,7 +42,7 @@ export class MdlDialogComponent {
     }
     this.isShown = true;
 
-    let p = this.dialogService.showDialogTemplate(this.template, {isModal: this.modal});
+    let p = this.dialogService.showDialogTemplate(this.template, {isModal: this.modal, dialogWidth: this.dialogWidth});
     p.subscribe( (dialogRef: MdlDialogReference) => {
 
       this.dialogRef = dialogRef;

@@ -38,6 +38,10 @@ export interface IMdlDialogConfiguration {
    * true if the dialog should be opened as modal.
    */
   isModal?: boolean;
+  /**
+   * inline width stlying for mdl-host-component
+   */
+  dialogWidth?: string;
 }
 
 /**

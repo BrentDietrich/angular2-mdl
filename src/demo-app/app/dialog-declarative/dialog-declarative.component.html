@@ -125,6 +125,44 @@ You can only show one intance of an embedded dialog.
 ]]>
 </pre>
 
+<h5>A custom Dialog with a custom width - template</h5>
+
+You can only show one intance of an embedded dialog.
+
+<p>Username: {{ username }}</p>
+
+<button
+    mdl-button mdl-button-type="raised" mdl-colored="accent"
+    mdl-ripple (click)="editUserWidthDialog.show()">Edit User Dialog</button>
+
+<mdl-dialog #editUserWidthDialog [mdl-modal]="false" (show)="onDialogShow($event)" (hide)="onDialogHide()" [dialog-width]="'600px'">
+  <h3 class="mdl-dialog__title">Edit User</h3>
+  <div class="mdl-dialog__content">
+    <mdl-textfield type="text" label="Username" [(ngModel)]="editedUsername" floating-label autofocus></mdl-textfield>
+  </div>
+  <div class="mdl-dialog__actions">
+    <button mdl-button (click)="editUserWidthDialog.close()" mdl-ripple>Close</button>
+  </div>
+</mdl-dialog>
+
+<pre prism>
+<![CDATA[
+<button mdl-button mdl-button-type="raised" mdl-colored="primary"
+        mdl-ripple (click)="editUserDialog.show()">Edit User Dialog</button>
+
+<mdl-dialog #editUserDialog [mdl-modal]="true" (show)="onDialogShow(dialogRef)" (hide)="onDialogHide()" [dialog-width]="'600px'">
+  <h3 class="mdl-dialog__title">Edit User</h3>
+  <div class="mdl-dialog__content">
+    <mdl-textfield type="text" label="Username" [(ngModel)]="username" floating-label autofocus></mdl-textfield>
+  </div>
+  <div class="mdl-dialog__actions">
+    <button mdl-button (click)="saveUser()" mdl-button-type="raised" mdl-colored="primary" mdl-ripple>Save</button>
+    <button mdl-button (click)="editUserDialog.close()" mdl-ripple>Cancel</button>
+  </div>
+</mdl-dialog>
+]]>
+</pre>
+
 <h5>Attributes of the mdl-dialog component</h5>
 
 <table class="docu" mdl-shadow="2">
@@ -154,6 +192,13 @@ You can only show one intance of an embedded dialog.
     <td>show</td>
     <td>
       Event will be triggered if the dialog is visible.
+    </td>
+  </tr>
+
+  <tr>
+    <td>dialog-width</td>
+    <td>
+      Set a custom width to this modal. Default minimum width is preset from material-design-lite
     </td>
   </tr>
 

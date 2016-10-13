@@ -30,6 +30,7 @@ export class DialogDeclarativeDemo extends AbstractDemoComponent {
   public editedUsername: string;
 
   @ViewChild('editUserDialog') private  editUserDialog: MdlDialogComponent;
+  @ViewChild('editUserWidthDialog') private  editUserWidthDialog: MdlDialogComponent;
   @ViewChild(MdlTextFieldComponent) private tfName: MdlTextFieldComponent;
 
   constructor(

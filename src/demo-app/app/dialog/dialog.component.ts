@@ -96,7 +96,8 @@ export class DialogDemo extends AbstractDemoComponent {
     let pDialog = this.dialogService.showCustomDialog({
       component: LoginDialogComponent,
       providers: [{provide: TEST_VALUE, useValue: 'Just an example'}],
-      isModal: true
+      isModal: true,
+      dialogWidth: '1000px'
     });
     pDialog.subscribe( (dialogReference: MdlDialogReference) => {
       console.log('dialog visible', dialogReference);

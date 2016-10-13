@@ -177,7 +177,8 @@ These dialogs are created by the <i>MdlDialogService</i>.
 
     let pDialog = this.dialogService.showCustomDialog({
       component: LoginDialogComponent,
-      isModal: true
+      isModal: true,
+      dialogWidth: '500px'
     });
     pDialog.then( (dialogReference: MdlDialogReference) => {
       console.log('dialog visible', dialogReference);
